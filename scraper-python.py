@@ -7,6 +7,13 @@ def scrape():
     soup = BeautifulSoup(response.text, 'html.parser')
     print(soup)
 
+    title = soup.select_one('h1').text
+    text = soup.select_one('p').text
+    link = soup.select_one('a').get('href')
+
+    print(f"Title: {title}")
+    print(f"Text: {text}")
+    print(f"Link: {link}")
 
 
 if __name__ == '__main__':
